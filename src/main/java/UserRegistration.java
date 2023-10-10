@@ -8,12 +8,13 @@ public class UserRegistration {
 	String mnumber;
 	String passward;
 
-	public UserRegistration(String fname, String lname, String email, String mnumber) {
+	public UserRegistration(String fname, String lname, String email, String mnumber,String passward) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
 		this.mnumber = mnumber;
+		this.passward=passward;
 	}
 
 	public boolean validFirstName(String fname2) {
@@ -51,5 +52,15 @@ public class UserRegistration {
 		else
 			return false;
 	}
+
+	public boolean validPassward(String passward2) {
+        Pattern p = Pattern.compile("^[a-z]{8,}$");
+		Matcher ma = p.matcher(passward2);
+		if (ma.matches())
+			return true;
+		else
+			return false;
+	}
+
 
 }
