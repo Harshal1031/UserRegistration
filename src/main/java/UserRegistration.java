@@ -77,5 +77,15 @@ public class UserRegistration {
 		else
 			return false;
 	}
+	public boolean validPassward4(String passward2) {
+        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
+	
+		Matcher ma = p.matcher(passward2);
+		if (ma.matches())
+			return true;
+		else
+			return false;
+	}
+
 
 }

@@ -36,6 +36,10 @@ public class TestUserRegistration {
 		assertFalse(user.validPassward3(user.passward));
 
 	}
+	@Test
+    public void testValidPassward4() {
+		assertTrue(user.validPassward4(user.passward));
+	}
 
-
+	
 }
