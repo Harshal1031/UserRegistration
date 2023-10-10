@@ -13,5 +13,11 @@ public class TestUserRegistration {
 		assertTrue(user.validLastName(user.fname));
 
 	}
+	@Test
+    public void testValidEmail() {
+		assertTrue(user.validEmail(user.email));
+
+	}
+
 
 }
