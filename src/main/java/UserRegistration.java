@@ -61,6 +61,14 @@ public class UserRegistration {
 		else
 			return false;
 	}
+	public boolean validPassward2(String passward2) {
+        Pattern p = Pattern.compile("\"[a-z]{7,}[A-Z]{1,}\"");
+		Matcher ma = p.matcher(passward2);
+		if (ma.matches())
+			return true;
+		else
+			return false;
+	}
 
 
 }
