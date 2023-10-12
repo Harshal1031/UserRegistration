@@ -7,6 +7,10 @@ public class UserRegistration {
 	String email;
 	String mnumber;
 	String passward;
+	public UserRegistration() {
+		super();
+	}
+
 
 	public UserRegistration(String fname, String lname, String email, String mnumber,String passward) {
 		super();
@@ -36,12 +40,55 @@ public class UserRegistration {
 	}
 
 	public boolean validEmail(String email2) {
-		Pattern p = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
-		Matcher ma = p.matcher(email2);
-		if (ma.matches())
-			return true;
-		else
-			return false;
+        Pattern pattern = Pattern.compile("^[a-z]{3}@[a-z]{2,}.[a-z]{3,}$");
+        Matcher matcher = pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("^[a-z]{3}-[0-9]{3}@[a-z]{3,}.[a-z]{2,}$");
+        matcher = pattern.matcher(email2);
+          if (matcher.matches()){
+            return true;
+        }
+
+        pattern = Pattern.compile("^[a-z]{3}.[0-9]{3}@[a-z]{3,}.[a-z]{2,}$");
+        matcher = pattern.matcher(email2);
+         if (matcher.matches()){
+            return true;
+        }
+         pattern = Pattern.compile("^[a-z0-9]{2,}@[a-z]{3}.[a-z]{2,}$");
+         matcher = pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+         pattern = Pattern.compile("^[a-z]{2,}-[0-9]{2,}@[a-z]{2,}.[a-z]{2,}");
+         matcher= pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+         pattern = Pattern.compile("^[a-z]{3}.[0-9]{3}@[a-z]{3}.[a-z]{3}.[a-z]{2}$");
+         matcher = pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+
+         pattern = Pattern.compile("^[a-z]{3}@[a-z]{2,}.[a-z]{3}.[a-z]{3}$");
+         matcher = pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+         pattern = Pattern.compile("[a-z]{3,}[+]\\d{2,}@[a-z]{2,}.[a-z]{3,}");
+         matcher = pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+         pattern = Pattern.compile("^[a-z]{2,}@[0-9]{1,}.[a-z]{2,}$");
+         matcher = pattern.matcher(email2);
+        if (matcher.matches()){
+            return true;
+        }
+
+      return false;
 	}
 
 	public boolean validMobileNumber(String mnumber2) {

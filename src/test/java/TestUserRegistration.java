@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class TestUserRegistration {
-	UserRegistration user=new UserRegistration("Harshal","Malviya","harshal@gmail.com","91 8446555270","Harshal@123");
+	UserRegistration user=new UserRegistration("Harshal","Malviya","abc@yahoo.com","91 8446555270","Harshal@123");
 	@Test
     public void testValidFirstName() {
 		assertTrue(user.validFirstName(user.fname));
@@ -40,6 +40,7 @@ public class TestUserRegistration {
     public void testValidPassward4() {
 		assertTrue(user.validPassward4(user.passward));
 	}
+    
 
 	
 }
