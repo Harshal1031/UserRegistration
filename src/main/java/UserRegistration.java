@@ -1,6 +1,11 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@FunctionalInterface
+ interface LambdaFunction {
+ boolean isvalid(String reg,String input);
+}
+
 public class UserRegistration {
 	String fname;
 	String lname;
@@ -133,6 +138,38 @@ public class UserRegistration {
 		else
 			return false;
 	}
+	public static void main(String[] args) {
+
+        LambdaFunction firstName= ( output , input) -> Pattern.matches(output,input);
+        System.out.println("FirstName:- "+firstName.isvalid("^[A-Z]+[a-zA-Z]{2,}[0-9]*$","Harshal"));
+
+
+        LambdaFunction lastName= ( output , input) -> Pattern.matches(output,input);
+        System.out.println("LastName:- "+lastName.isvalid("^[A-Z]+[a-zA-Z]{2,}[0-9]*$","malviya"));
+
+
+        LambdaFunction email= ( output , input) -> Pattern.matches(output,input);
+        System.out.println("Email:- "+email.isvalid("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$","Harshal@gmail.com"));
+
+        LambdaFunction mobileNumber= ( output , input) -> Pattern.matches(output,input);
+        System.out.println("MObile Number:- "+mobileNumber.isvalid("^[9][1]\\s[6-9][0-9]{9}$","91 8446555270"));
+
+        LambdaFunction passoword1= (output,input)-> Pattern.matches(output,input);
+        System.out.println("Password Rule 1:- "+passoword1.isvalid("^[a-z]{8,}$","harshal@123"));
+
+        LambdaFunction passoword2= (output,input)-> Pattern.matches(output,input);
+        System.out.println("Password Rule 2:- "+passoword2.isvalid("[a-z]{7,}[A-Z]{1,}","harshal@123"));
+
+        LambdaFunction passoword3= (output,input)-> Pattern.matches(output,input);
+        System.out.println("Password Rule 3:- "+passoword3.isvalid("[a-z]{7,}[A-Z]{1,}[0-9]{1,}","harshal@123"));
+
+        LambdaFunction passoword4= (output,input)-> Pattern.matches(output,input);
+        System.out.println("Password Rule 4:- "+passoword4.isvalid("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$","Harshal@123"));
+
+
+
+    }
+
 
 
 }
